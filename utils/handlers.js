@@ -54,16 +54,17 @@ const taroRandomCardHandler = async (ctx, keyboard = null) => {
   const normalizedNumber = randomNumber < 10 ? `0${randomNumber}` : randomNumber;
   const cardName = `${mastiName}${normalizedNumber}`;
   const filePathCard = path.join(__dirname, `./../assets/cards/${cardName}.jpg`);
-  const text = `Ответ: ${cardName}`;
+  const filePathCardText = path.join(__dirname, `./../content/taro/cards/${cardName}.md`);
+  const textCard = fs.readFileSync(filePathCardText, 'utf-8');
   if (!fs.existsSync(filePathCard)) {
     console.error(`Файл ${filePathCard} не найден`);
     await ctx.reply('Почему\-то карты не хотят вставать с кровати 🤷‍♂️\. Попробуйте позже ⛺\.');
     return;
   }
   if (keyboard !== null) {
-    await ctx.replyWithPhoto(new InputFile(filePathCard), { caption: text, parse_mode: "MarkdownV2", reply_markup: keyboard });
+    await ctx.replyWithPhoto(new InputFile(filePathCard), { caption: textCard, parse_mode: "MarkdownV2", reply_markup: keyboard });
   } else {
-    await ctx.replyWithPhoto(new InputFile(filePathCard), { caption: text, parse_mode: "MarkdownV2" });
+    await ctx.replyWithPhoto(new InputFile(filePathCard), { caption: textCard, parse_mode: "MarkdownV2" });
   }
 };
 
