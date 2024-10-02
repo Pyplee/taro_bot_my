@@ -1,0 +1,25 @@
+{
+  "name": "taro_bot_prof",
+  "version": "1.0.0",
+  "description": "Taro bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Pyplee",
+  "license": "ISC",
+  "dependencies": {
+    "@grammyjs/hydrate": "^1.4.1",
+    "dotenv": "^16.4.5",
+    "grammy": "^1.30.0",
+    "nodemon": "^3.1.7",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
+    "winston": "^3.14.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "eslint": "^9.11.1",
+    "globals": "^15.9.0"
+  }
+}

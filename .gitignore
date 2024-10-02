@@ -1,0 +1,4 @@
+.env
+logs
+/utils/db/userData.db
+node_modules
